@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CakeBe Admin Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #fafafa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .login-box {
+      width: 280px;
+      background: white;
+      padding: 20px 18px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+      border-top: 3px solid #c77dff;
+    }
+
+    .login-box h6 {
+      text-align: center;
+      margin-bottom: 15px;
+      font-weight: 600;
+      color: #343a40;
+    }
+
+    input.form-control {
+      height: 30px;
+      font-size: 13px;
+    }
+
+    .btn-login {
+      width: 100%;
+      background-color: #c77dff;
+      color: white;
+      font-size: 13px;
+      height: 32px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .btn-login:hover {
+      background-color: #9d4edd;
+    }
+
+    .error {
+      text-align: center;
+      color: #dc3545;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h6>cakebe</h6>
+    <h6>Admin Login</h6>
+    <form action="/checklogin" method="POST">
+      {% csrf_token %}
+      <div class="mb-2">
+        <input type="text" name="username" class="form-control" placeholder="Username" required>
+      </div>
+      <div class="mb-2">
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
+      </div>
+      
+      <div class="error">{{ errmsg }}</div>
+      
+      <button type="submit" class="btn-login mt-2">Login</button>
+    </form>
+  </div>
+
+</body>
+</html>

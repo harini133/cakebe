@@ -1,0 +1,16 @@
+{% extends "dashboard.html" %}
+{% block content %}
+<div class="container text-center">
+  <div class="card shadow p-4 bg-white rounded">
+    <img src="{{ result.cakephoto.url }}" class="card-img-top mx-auto" style="width: 200px;" alt="Cake Image">
+    <div class="card-body">
+      <h3 class="card-title">{{ result.cakename }}</h3>
+      <p><strong>Type:</strong> {{ result.caketype }}</p>
+      <p><strong>Price:</strong> ₹{{ result.cakeprice }}</p>
+      <p><strong>Quantity:</strong> {{ result.cakequantity }}</p>
+      <p><strong>Weight:</strong> {{ result.cakeweight }}</p>
+      <a href="/viewall" class="btn btn-secondary mt-2">Back</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

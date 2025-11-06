@@ -1,0 +1,47 @@
+{% extends "dashboard.html" %}
+{% block content %}
+<div class="container py-4">
+  <h3 class="text-center text-primary fw-semibold mb-4">🧁 Cake Collection</h3>
+
+  <div class="row g-3">
+    {% for i in result %}
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card border-0 shadow-sm h-100 cake-card">
+        <img src="{{ i.cakephoto.url }}" class="card-img-top" alt="" style="height:250px; object-fit:cover; border-radius:10px 10px 0 0;">
+        <div class="card-body p-2">
+          <h6 class="card-title mb-1 fw-semibold text-dark text-truncate">{{ i.cakename }}</h6>
+          <small class="text-muted d-block">Type: {{ i.caketype }}</small>
+          <small class="text-muted d-block">Qty: {{ i.cakequantity }}</small>
+          <div class="d-flex justify-content-between align-items-center mt-2">
+            <span class="fw-bold text-success">₹{{ i.cakeprice }}</span>
+            <small class="text-muted">{{ i.cakeweight }}</small>
+          </div>
+        </div>
+        <div class="card-footer bg-white border-0 p-2 d-flex justify-content-around">
+          <a href="/selectcake/{{ i.id }}" class="btn btn-sm btn-outline-info"><i class="bi bi-eye"></i></a>
+          <a href="/modifycake/{{ i.id }}" class="btn btn-sm btn-outline-warning"><i class="bi bi-pencil"></i></a>
+          <a href="/deletecake/{{ i.id }}" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.cake-card {
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cake-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.card-body h6 {
+  font-size: 0.95rem;
+}
+.card-footer .btn {
+  padding: 2px 6px;
+}
+</style>
+{% endblock %}

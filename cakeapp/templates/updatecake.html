@@ -1,0 +1,35 @@
+{% extends "dashboard.html" %}
+{% block content %}
+<div class="container">
+  <h2 class="text-primary mb-4">✏️ Update Cake Details</h2>
+
+  <form action="/updatecakes/{{ result.id }}" method="POST" enctype="multipart/form-data" class="shadow p-4 rounded bg-white">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label">Cake Name</label>
+      <input type="text" name="cakename" value="{{ result.cakename }}" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Type</label>
+      <input type="text" name="caketype" value="{{ result.caketype }}" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Price</label>
+      <input type="number" name="cakeprice" value="{{ result.cakeprice }}" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Quantity</label>
+      <input type="number" name="cakequantity" value="{{ result.cakequantity }}" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Weight</label>
+      <input type="text" name="cakeweight" value="{{ result.cakeweight }}" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Photo</label>
+      <input type="file" name="cakephoto" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Update Cake</button>
+  </form>
+</div>
+{% endblock %}
